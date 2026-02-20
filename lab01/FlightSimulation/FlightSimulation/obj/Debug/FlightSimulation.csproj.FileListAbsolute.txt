@@ -1,0 +1,10 @@
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\FlightSimulation\FlightSimulation\bin\Debug\FlightSimulation.exe.config
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\FlightSimulation\FlightSimulation\bin\Debug\FlightSimulation.exe
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\FlightSimulation\FlightSimulation\bin\Debug\FlightSimulation.pdb
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\FlightSimulation\FlightSimulation\obj\Debug\FlightSimulation.csproj.AssemblyReference.cache
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\FlightSimulation\FlightSimulation\obj\Debug\FlightSimulation.Form1.resources
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\FlightSimulation\FlightSimulation\obj\Debug\FlightSimulation.Properties.Resources.resources
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\FlightSimulation\FlightSimulation\obj\Debug\FlightSimulation.csproj.GenerateResource.cache
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\FlightSimulation\FlightSimulation\obj\Debug\FlightSimulation.csproj.CoreCompileInputs.cache
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\FlightSimulation\FlightSimulation\obj\Debug\FlightSimulation.exe
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\FlightSimulation\FlightSimulation\obj\Debug\FlightSimulation.pdb
