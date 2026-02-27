@@ -1,0 +1,10 @@
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab2\lab2\bin\Debug\lab2.exe.config
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab2\lab2\bin\Debug\lab2.exe
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab2\lab2\bin\Debug\lab2.pdb
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab2\lab2\obj\Debug\lab2.csproj.AssemblyReference.cache
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab2\lab2\obj\Debug\lab2.Form1.resources
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab2\lab2\obj\Debug\lab2.Properties.Resources.resources
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab2\lab2\obj\Debug\lab2.csproj.GenerateResource.cache
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab2\lab2\obj\Debug\lab2.csproj.CoreCompileInputs.cache
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab2\lab2\obj\Debug\lab2.exe
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab2\lab2\obj\Debug\lab2.pdb
