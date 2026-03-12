@@ -1,0 +1,16 @@
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab3\lab3\lab3\bin\Debug\net8.0-windows\lab3.exe
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab3\lab3\lab3\bin\Debug\net8.0-windows\lab3.deps.json
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab3\lab3\lab3\bin\Debug\net8.0-windows\lab3.runtimeconfig.json
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab3\lab3\lab3\bin\Debug\net8.0-windows\lab3.dll
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab3\lab3\lab3\bin\Debug\net8.0-windows\lab3.pdb
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab3\lab3\lab3\obj\Debug\net8.0-windows\lab3.Form1.resources
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab3\lab3\lab3\obj\Debug\net8.0-windows\lab3.csproj.GenerateResource.cache
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab3\lab3\lab3\obj\Debug\net8.0-windows\lab3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab3\lab3\lab3\obj\Debug\net8.0-windows\lab3.AssemblyInfoInputs.cache
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab3\lab3\lab3\obj\Debug\net8.0-windows\lab3.AssemblyInfo.cs
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab3\lab3\lab3\obj\Debug\net8.0-windows\lab3.csproj.CoreCompileInputs.cache
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab3\lab3\lab3\obj\Debug\net8.0-windows\lab3.dll
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab3\lab3\lab3\obj\Debug\net8.0-windows\refint\lab3.dll
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab3\lab3\lab3\obj\Debug\net8.0-windows\lab3.pdb
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab3\lab3\lab3\obj\Debug\net8.0-windows\lab3.genruntimeconfig.cache
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\lab3\lab3\lab3\obj\Debug\net8.0-windows\ref\lab3.dll
