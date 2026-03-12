@@ -60,7 +60,6 @@ namespace lab3
             InitializeMap();
             totalTrees = 0;
 
-            // 1. Генерируем лес (70% деревьев)
             for (int i = 0; i < GRID_SIZE; i++)
             {
                 for (int j = 0; j < GRID_SIZE; j++)
@@ -73,7 +72,6 @@ namespace lab3
                 }
             }
 
-            // 2. Генерируем реку (горизонтальная полоса в случайном месте)
             int riverRow = rand.Next(GRID_SIZE / 4, 3 * GRID_SIZE / 4);
             for (int j = 0; j < GRID_SIZE; j++)
             {
@@ -81,7 +79,6 @@ namespace lab3
                     totalTrees--; // Река уничтожила дерево
                 grid[riverRow, j] = CellState.Water;
 
-                // Иногда добавляем второй ряд для ширины
                 if (rand.NextDouble() < 0.5 && riverRow + 1 < GRID_SIZE)
                 {
                     if (grid[riverRow + 1, j] == CellState.Tree)
@@ -89,8 +86,6 @@ namespace lab3
                     grid[riverRow + 1, j] = CellState.Water;
                 }
             }
-
-            // 3. Поджигаем несколько случайных деревьев для старта
             int fireCount = 5;
             while (fireCount > 0)
             {
@@ -351,3 +346,4 @@ namespace lab3
         }
     }
 }
+
