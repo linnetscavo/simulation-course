@@ -1,0 +1,14 @@
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\4lab\4lab\bin\Debug\net8.0\4lab.exe
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\4lab\4lab\bin\Debug\net8.0\4lab.deps.json
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\4lab\4lab\bin\Debug\net8.0\4lab.runtimeconfig.json
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\4lab\4lab\bin\Debug\net8.0\4lab.dll
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\4lab\4lab\bin\Debug\net8.0\4lab.pdb
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\4lab\4lab\obj\Debug\net8.0\4lab.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\4lab\4lab\obj\Debug\net8.0\4lab.AssemblyInfoInputs.cache
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\4lab\4lab\obj\Debug\net8.0\4lab.AssemblyInfo.cs
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\4lab\4lab\obj\Debug\net8.0\4lab.csproj.CoreCompileInputs.cache
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\4lab\4lab\obj\Debug\net8.0\4lab.dll
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\4lab\4lab\obj\Debug\net8.0\refint\4lab.dll
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\4lab\4lab\obj\Debug\net8.0\4lab.pdb
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\4lab\4lab\obj\Debug\net8.0\4lab.genruntimeconfig.cache
+C:\Users\HOME\Desktop\6 семестр\imitationModulation\4lab\4lab\obj\Debug\net8.0\ref\4lab.dll
