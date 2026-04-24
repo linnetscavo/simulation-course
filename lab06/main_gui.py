@@ -4,6 +4,7 @@ from tkinter import ttk, messagebox
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import math
+import numpy as np
 
 from rng import MultiplicativeCongruentialGenerator
 from stats_utils import (
@@ -11,6 +12,7 @@ from stats_utils import (
     generate_normal_rv_box_muller, 
     calculate_mean_variance, 
     chi_squared_test,
+    chi_squared_test_continuous, 
     create_histogram_data
 )
 
@@ -18,7 +20,7 @@ class SimulationApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Лабораторная работа 6: Моделирование СВ")
-        self.root.geometry("1000x700")
+        self.root.geometry("1100x800") 
 
         self.tab_control = ttk.Notebook(root)
         
@@ -97,6 +99,81 @@ class SimulationApp:
                 result_text = "H0 принята" if chi_stat < crit_val else "H0 отвергнута"
                 
                 self.tree.insert("", "end", values=(
+                    n, f"{emp_mean:.3f}", f"{mean_err:.2f}%", f"{emp_var:.3f}", 
+                    f"{var_err:.2f}%", f"{chi_stat:.2f}", f"{crit_val:.2f}", result_text
+                ))
+        except Exception as e:
+            messagebox.showerror("Ошибка", str(e))
+
+    def setup_continuous_tab(self):
+        frame_ctrl = ttk.Frame(self.tab_continuous)
+        frame_ctrl.pack(fill="x", padx=10, pady=5)
+        
+        ttk.Label(frame_ctrl, text="Mu:").pack(side="left", padx=5)
+        self.ent_mu = ttk.Entry(frame_ctrl, width=10)
+        self.ent_mu.insert(0, "0")
+        self.ent_mu.pack(side="left", padx=5)
+        
+        ttk.Label(frame_ctrl, text="Sigma:").pack(side="left", padx=5)
+        self.ent_sigma = ttk.Entry(frame_ctrl, width=10)
+        self.ent_sigma.insert(0, "1")
+        self.ent_sigma.pack(side="left", padx=5)
+        
+        ttk.Label(frame_ctrl, text="N (для графика):").pack(side="left", padx=5)
+        self.ent_n = ttk.Entry(frame_ctrl, width=10)
+        self.ent_n.insert(0, "1000")
+        self.ent_n.pack(side="left", padx=5)
+        
+        btn_plot = ttk.Button(frame_ctrl, text="Построить график", command=self.plot_normal_histogram)
+        btn_plot.pack(side="left", padx=10)
+
+        btn_stats = ttk.Button(frame_ctrl, text="Рассчитать статистику (N=10..10000)", command=self.run_continuous_simulation)
+        btn_stats.pack(side="right", padx=10)
+
+        ttk.Separator(self.tab_continuous, orient='horizontal').pack(fill='x', padx=10, pady=10)
+
+        self.fig_frame = ttk.Frame(self.tab_continuous)
+        self.fig_frame.pack(fill="both", expand=True, padx=10, pady=5)
+
+        cols = ("N", "Mean", "Mean Err %", "Var", "Var Err %", "Chi-Sq", "Chi-Crit", "Result")
+        self.tree_continuous = ttk.Treeview(self.tab_continuous, columns=cols, show='headings', height=8)
+        for col in cols:
+            self.tree_continuous.heading(col, text=col)
+            self.tree_continuous.column(col, width=80)
+        self.tree_continuous.pack(fill="x", padx=10, pady=5)
+        
+        ttk.Label(self.tab_continuous, text="Статистика сходимости (сравнение с теоретическими Mu и Sigma)").pack()
+
+    def run_continuous_simulation(self):
+        try:
+            mu = float(self.ent_mu.get())
+            sigma = float(self.ent_sigma.get())
+            
+            for item in self.tree_continuous.get_children():
+                self.tree_continuous.delete(item)
+                
+            sample_sizes = [10, 100, 1000, 10000]
+            rng = MultiplicativeCongruentialGenerator(seed=54321) 
+            
+            from scipy.stats import chi2
+            
+            for n in sample_sizes:
+                data = [generate_normal_rv_box_muller(rng, mu, sigma) for _ in range(n)]
+                
+                emp_mean, emp_var = calculate_mean_variance(data)
+                
+                theor_var = sigma ** 2
+                mean_err = abs(emp_mean - mu) / abs(mu) * 100 if mu != 0 else 0
+                var_err = abs(emp_var - theor_var) / theor_var * 100 if theor_var != 0 else 0
+                
+                chi_res = chi_squared_test_continuous(data, mu, sigma, num_bins=10)
+                chi_stat = chi_res['statistic']
+                
+                crit_val = chi2.ppf(0.95, chi_res['df'])
+                
+                result_text = "H0 принята" if chi_stat < crit_val else "H0 отвергнута"
+                
+                self.tree_continuous.insert("", "end", values=(
                     n, 
                     f"{emp_mean:.3f}", 
                     f"{mean_err:.2f}%", 
@@ -109,32 +186,6 @@ class SimulationApp:
                 
         except Exception as e:
             messagebox.showerror("Ошибка", str(e))
-
-    def setup_continuous_tab(self):
-        frame_ctrl = ttk.Frame(self.tab_continuous)
-        frame_ctrl.pack(fill="x", padx=10, pady=5)
-        
-        ttk.Label(frame_ctrl, text="Mu (среднее):").pack(side="left", padx=5)
-        self.ent_mu = ttk.Entry(frame_ctrl, width=10)
-        self.ent_mu.insert(0, "0")
-        self.ent_mu.pack(side="left", padx=5)
-        
-        ttk.Label(frame_ctrl, text="Sigma (стандартное отклонение):").pack(side="left", padx=5)
-        self.ent_sigma = ttk.Entry(frame_ctrl, width=10)
-        self.ent_sigma.insert(0, "1")
-        self.ent_sigma.pack(side="left", padx=5)
-        
-        ttk.Label(frame_ctrl, text="N (объем выборки):").pack(side="left", padx=5)
-        self.ent_n = ttk.Entry(frame_ctrl, width=10)
-        self.ent_n.insert(0, "1000")
-        self.ent_n.pack(side="left", padx=5)
-        
-        btn_plot = ttk.Button(frame_ctrl, text="Построить гистограмму", command=self.plot_normal_histogram)
-        btn_plot.pack(side="left", padx=10)
-        
-        # Место для графика
-        self.fig_frame = ttk.Frame(self.tab_continuous)
-        self.fig_frame.pack(fill="both", expand=True, padx=10, pady=5)
 
     def plot_normal_histogram(self):
         try:
@@ -175,7 +226,7 @@ if __name__ == "__main__":
     try:
         from scipy.stats import chi2
     except ImportError:
-        print("Установите scipy: pip install scipy (для точного расчета критических значений)")
+        print("Установите scipy: pip install scipy")
 
     root = tk.Tk()
     app = SimulationApp(root)

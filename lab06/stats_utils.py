@@ -64,28 +64,59 @@ def chi_squared_test(data: list, values: list, probabilities: list, n_bins: int 
         "observed": observed_freq,
         "expected": {val: n * prob for val, prob in zip(values, probabilities)}
     }
+def chi_squared_test_continuous(data: list, mu: float, sigma: float, num_bins: int = 10) -> dict:
+    import numpy as np
+    from scipy.stats import norm
+    
+    n = len(data)
+    if n == 0:
+        return {"statistic": 0, "df": num_bins - 3} 
+
+
+    min_val, max_val = min(data), max(data)
+    range_val = max_val - min_val
+    if range_val == 0: range_val = 1
+    start = min_val - 0.01 * range_val
+    end = max_val + 0.01 * range_val
+    
+    bins_edges = np.linspace(start, end, num_bins + 1)
+    
+    observed_freq = [0] * num_bins
+    for x in data:
+        for i in range(num_bins):
+            if bins_edges[i] <= x < bins_edges[i+1]:
+                observed_freq[i] += 1
+                break
+        if x == bins_edges[-1]:
+            observed_freq[-1] += 1
+
+    chi_sq_stat = 0
+    for i in range(num_bins):
+        p_theor = norm.cdf(bins_edges[i+1], loc=mu, scale=sigma) - norm.cdf(bins_edges[i], loc=mu, scale=sigma)
+        n_exp = n * p_theor
+        
+        if n_exp > 0: 
+            n_obs = observed_freq[i]
+            chi_sq_stat += ((n_obs - n_exp) ** 2) / n_exp
+
+    degrees_of_freedom = num_bins - 1 
+    return {"statistic": chi_sq_stat, "df": degrees_of_freedom}
 
 def create_histogram_data(data: list, bins: int = 20) -> tuple:
     min_val = min(data)
     max_val = max(data)
     if min_val == max_val:
         return [min_val], [len(data)]
-        
     step = (max_val - min_val) / bins
-    histogram = {}
-    
     bin_edges = []
     counts = []
-    
     current_bin_start = min_val
     for i in range(bins):
         bin_end = current_bin_start + step
         count = sum(1 for x in data if current_bin_start <= x < bin_end)
-        if i == bins - 1: 
+        if i == bins - 1:
              count = sum(1 for x in data if current_bin_start <= x <= bin_end)
-             
         bin_edges.append(f"{current_bin_start:.2f}-{bin_end:.2f}")
         counts.append(count)
         current_bin_start = bin_end
-        
     return bin_edges, counts
